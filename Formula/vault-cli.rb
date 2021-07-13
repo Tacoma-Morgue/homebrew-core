@@ -11,7 +11,9 @@ class VaultCli < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "7d315eb5639e98ff9275c64d0dbfe7cc90362846c80c20f7443c9b465e5ae940"
+  end
 
   depends_on "openjdk"
 

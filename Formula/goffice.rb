@@ -35,6 +35,12 @@ class Goffice < Formula
   uses_from_macos "libxslt"
 
   def install
+    on_linux do
+      # Needed to find intltool (xml::parser)
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+      ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
+    end
+
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
     if build.head?
       system "./autogen.sh", *args
@@ -56,12 +62,16 @@ class Goffice < Formula
           return 0;
       }
     EOS
+    libxml2 = MacOS.sdk_path/"usr/include/libxml2"
+    on_linux do
+      libxml2 = Formula["libxml2"].opt_include/"libxml2"
+    end
     system ENV.cc, "-I#{include}/libgoffice-0.10",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
-           "-I#{MacOS.sdk_path}/usr/include/libxml2",
+           "-I#{libxml2}",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "-I#{Formula["cairo"].opt_include}/cairo",

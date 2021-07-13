@@ -11,7 +11,9 @@ class Detekt < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "7c848f383fc59fff74a13e62dfea31cc53a51bbc6e429f909df4a27b9dbe6040"
+  end
 
   depends_on "openjdk@11"
 

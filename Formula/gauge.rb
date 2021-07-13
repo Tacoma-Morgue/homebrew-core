@@ -1,16 +1,17 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://gauge.org"
-  url "https://github.com/getgauge/gauge/archive/v1.2.1.tar.gz"
-  sha256 "4a3fc07a8252fc8457827131302a6a67ae1308b405838d35b31cd43864d4c947"
+  url "https://github.com/getgauge/gauge/archive/v1.3.2.tar.gz"
+  sha256 "d4cfdf3cf07a17149b6ee8dfd8b2a8f5082923238f18909bc46d870863dddc4a"
   license "Apache-2.0"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "43a9f3609c07ead13d8796150822823b581232df077b0348806ed314d4e9d78c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "40fdf987c03683e24eb643fb2c822e976bebb38c71c280cd106bd2142168265d"
-    sha256 cellar: :any_skip_relocation, catalina:      "fd296bdc448217725fac72ef38e688fbf67ca0a6cca3300313cdc55800563029"
-    sha256 cellar: :any_skip_relocation, mojave:        "93422569fd4ae31b8eb9d4a568f45758bb9eff0f3f36c82082b249608a26a0aa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81884a878b76b1c09bab8adbca6548aba40cdc1ea65f5c826ed28560345135a1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "aadf40951be3277c2ddd808866b4e917db93dc81e92889eceb1a9260a67bc8df"
+    sha256 cellar: :any_skip_relocation, catalina:      "998d2288299f24fa24500020164e57702b0242f39d5203c2595867c6de310a28"
+    sha256 cellar: :any_skip_relocation, mojave:        "820b15a2c99f17a1e1769e48504ea746d3fcf68a1cf9efee7a34b1501609503f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f695cc25af482c7e6bd0d6b56e81254125546f880b9abf14ebf6eca77263e6b"
   end
 
   depends_on "go" => :build

@@ -14,7 +14,9 @@ class Geoserver < Formula
     regex(%r{href=(?:["']|.*?GeoServer/)?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "d483562314807f5c87fabacbad6d729cf81d74a49f60ca8875e6ea9badc6ff90"
+  end
 
   def install
     libexec.install Dir["*"]
